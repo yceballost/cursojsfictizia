@@ -1,10 +1,10 @@
 var targetElement; // Declarar una variable
 
 targetElement = 3; // Inicializar una variable
-console.log("El valor de mi variable es " + targetElement + " y el tipo es " + typeof targetElement);
+//console.log("El valor de mi variable es " + targetElement + " y el tipo es " + typeof targetElement);
 
 targetElement = "hola "; // Asignar un valor 
-console.log("El valor de mi variable es " + targetElement + " y el tipo es " + typeof targetElement);
+//console.log("El valor de mi variable es " + targetElement + " y el tipo es " + typeof targetElement);
 
 function sayHello() {
     alert("Hola, Mundo"); // Mensaje de salida
@@ -31,7 +31,6 @@ function destroyOther() {
 }
 
 /*
-
 --------------------------------
 Programación orientada a eventos
 --------------------------------
@@ -48,5 +47,57 @@ Tabla de eventos/comportamientos:
     ---------------------------------------
 1)  click | #btn1   | -       | sayHello()
 2)  click | .box    | self    | selfDestroy()
-
 */
+
+/* --------------- Ejemplo con referencias a funciones --------------- */
+
+var conEducacion = function( tipo ) {
+    if( tipo == "doctor" ) {
+        return "Dr. ";
+    }
+
+    return "";
+}
+
+var sinEducacion = function( tipo ) {
+    return "";
+}
+
+function prefijo(tipo, funcionTratadora) {
+    return funcionTratadora(tipo);
+}
+
+var tratamiento = "doctor";
+
+function saludar() {
+    document.getElementById("greeting").innerHTML += prefijo(tratamiento, conEducacion) + " David";
+}
+
+saludar();
+
+/* --------------- Ejemplo arrays --------------- */
+
+var misCosas = [ "ordenador", "pizarra" , "movil" ];
+misCosas[1] = "pantalla";
+//console.log(misCosas[1]); // pantalla
+
+/* --------------- Ejemplo bucles --------------- */
+
+var contador = 0;
+var bonito = false;
+
+while( bonito ) {
+    console.log("Happy friends");
+
+    if(contador < 3)
+        contador++;
+    else
+        bonito = false;
+}
+
+var frutas = [ 'peras', 'limones', 'tomates' ];
+frutas.push('papaya');
+
+for(i = 0; i < frutas.length; i++) {
+    console.log(frutas[i]);
+}
